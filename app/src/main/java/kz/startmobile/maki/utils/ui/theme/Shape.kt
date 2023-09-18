@@ -1,4 +1,4 @@
-package kz.startmobile.maki.ui.theme
+package kz.startmobile.maki.utils.ui.theme
 
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Shapes
