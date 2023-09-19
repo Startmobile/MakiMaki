@@ -1,0 +1,7 @@
+[versions]
+retrofit-version = '2.9.0'
+
+[libraries]
+retrofit2 = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit-version"}
+
+[plugins]
