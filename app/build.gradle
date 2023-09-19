@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
 }
 
 android {
@@ -60,4 +61,40 @@ dependencies {
     androidTestImplementation "androidx.compose.ui:ui-test-junit4:$compose_ui_version"
     debugImplementation "androidx.compose.ui:ui-tooling:$compose_ui_version"
     debugImplementation "androidx.compose.ui:ui-test-manifest:$compose_ui_version"
+
+    //retrofit
+    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
+    implementation "com.google.code.gson:gson:$retrofit_version"
+
+    //dagger
+    implementation "com.google.dagger:dagger-android:$dagger_version"
+    implementation "com.google.dagger:dagger-android-support:$dagger_version"
+    annotationProcessor "com.google.dagger:dagger-android-processor:$dagger_version"
+    annotationProcessor "com.google.dagger:dagger-compiler:$dagger_version"
+
+    //Voyager
+    // Multiplatform
+    // Navigator
+    implementation("cafe.adriel.voyager:voyager-navigator:$voyager_version")
+    // BottomSheetNavigator
+    implementation("cafe.adriel.voyager:voyager-bottom-sheet-navigator:$voyager_version")
+    // TabNavigator
+    implementation("cafe.adriel.voyager:voyager-tab-navigator:$voyager_version")
+    // Transitions
+    implementation("cafe.adriel.voyager:voyager-transitions:$voyager_version")
+    // Android ViewModel integration
+    implementation("cafe.adriel.voyager:voyager-androidx:$voyager_version")
+    // Koin integration
+    implementation("cafe.adriel.voyager:voyager-koin:$voyager_version")
+    // Hilt integration
+    implementation("cafe.adriel.voyager:voyager-hilt:$voyager_version")
+    // LiveData integration
+    implementation("cafe.adriel.voyager:voyager-livedata:$voyager_version")
+
+    //DataStore
+    implementation "androidx.datastore:datastore:$datastore_version"
+
+    //Coroutines
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutines_version"
 }
