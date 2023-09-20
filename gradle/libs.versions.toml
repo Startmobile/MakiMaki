@@ -1,7 +1,9 @@
 [versions]
 retrofit-version = '2.9.0'
+dagger_version = '2.35.1'
 
 [libraries]
 retrofit2 = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit-version"}
+dagger = { group = "com.google.dagger", name = "dagger-android", version.ref = "dagger_version" }
 
 [plugins]
