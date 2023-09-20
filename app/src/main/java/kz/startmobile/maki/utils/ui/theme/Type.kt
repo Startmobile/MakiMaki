@@ -1,4 +1,4 @@
-package kz.startmobile.maki.ui.theme
+package kz.startmobile.maki.utils.ui.theme
 
 import androidx.compose.material.Typography
 import androidx.compose.ui.text.TextStyle
