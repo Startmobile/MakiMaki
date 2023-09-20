@@ -49,6 +49,7 @@ android {
 
 dependencies {
 
+    implementation(libs.compose)
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.3.1'
     implementation 'androidx.activity:activity-compose:1.3.1'
@@ -75,6 +76,7 @@ dependencies {
     annotationProcessor "com.google.dagger:dagger-compiler:$dagger_version"
 
     //Voyager
+    implementation(libs.voyager)
     // Multiplatform
     // Navigator
     implementation("cafe.adriel.voyager:voyager-navigator:$voyager_version")
@@ -94,8 +96,10 @@ dependencies {
     implementation("cafe.adriel.voyager:voyager-livedata:$voyager_version")
 
     //DataStore
+    implementation(libs.datastore)
     implementation "androidx.datastore:datastore:$datastore_version"
 
     //Coroutines
+    implementation(libs.coroutines)
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutines_version"
 }
