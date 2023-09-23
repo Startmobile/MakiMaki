@@ -1,6 +1,9 @@
 package kz.startmobile.maki.uicomponents.search_bar
 
+import android.util.Log
+import androidx.compose.animation.animateContentSize
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -32,17 +35,24 @@ fun MaterialSearchBar(
         topStart = 14.dp,
         bottomEnd = 14.dp,
         bottomStart = 14.dp
-    )
-) {
-    var text by remember { mutableStateOf("") }
-    var active by remember { mutableStateOf(false) }
-    var items = remember {
+    ),
+    items: MutableList<String> = remember {
         mutableListOf(
             "Hot dog",
             "Chicken",
             "Pizza"
         )
     }
+) {
+    var text by remember { mutableStateOf("") }
+    var active by remember { mutableStateOf(false) }
+
+    val paddingValues = if (active) {
+        PaddingValues(16.dp)
+    } else {
+        PaddingValues(0.dp)
+    }
+
     SearchBar(
         query = text,
         onQueryChange = {text = it},
@@ -50,11 +60,23 @@ fun MaterialSearchBar(
             items.add(text)
             active = false
             text = ""
+            Log.e("click", "onSearch()")
         },
         active = active,
-        onActiveChange = { active = it},
+        onActiveChange = {
+            active = it
+            Log.e("click", "onActiveChange()")
+                         },
         shape = shape,
-        modifier = modifier,
+        modifier = if (active) {
+            Log.e("event", "padding yes - $active")
+            Modifier.padding(horizontal = 0.dp, vertical = 0.dp)
+                .animateContentSize ()
+        } else {
+            Log.e("event", "padding no $active")
+            Modifier.padding(horizontal = 16.dp, vertical = 10.dp)
+                .animateContentSize ()
+        },
         placeholder = {
             Text(text = placeholder)
         },
