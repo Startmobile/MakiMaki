@@ -2,6 +2,7 @@ package kz.startmobile.maki.uicomponents.search_bar
 
 import android.util.Log
 import androidx.compose.animation.animateContentSize
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
@@ -16,9 +17,12 @@ import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.SearchBar
+import androidx.compose.material3.SearchBarColors
+import androidx.compose.material3.SearchBarDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
@@ -29,6 +33,7 @@ fun MaterialSearchBar(
     modifier: Modifier = Modifier
         .fillMaxWidth()
         .padding(horizontal = 16.dp, vertical = 10.dp),
+
     placeholder: String = "Search" ,
     shape: RoundedCornerShape = RoundedCornerShape(
         topEnd = 14.dp,
@@ -74,8 +79,8 @@ fun MaterialSearchBar(
                 .animateContentSize ()
         } else {
             Log.e("event", "padding no $active")
-            Modifier.padding(horizontal = 16.dp, vertical = 10.dp)
-                .animateContentSize ()
+            modifier.animateContentSize()
+
         },
         placeholder = {
             Text(text = placeholder)
@@ -98,7 +103,8 @@ fun MaterialSearchBar(
                     contentDescription = "Close Icon"
                 )
             }
-        }
+        },
+
     ) {
         items.forEach{
             Row(modifier = Modifier.padding(14.dp)){
