@@ -2,7 +2,6 @@ package kz.startmobile.maki.uicomponents.search_bar
 
 import android.util.Log
 import androidx.compose.animation.animateContentSize
-import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
@@ -10,7 +9,6 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.History
 import androidx.compose.material.icons.filled.Search
@@ -34,7 +32,7 @@ fun MaterialSearchBar(
         .fillMaxWidth()
         .padding(horizontal = 16.dp, vertical = 10.dp),
 
-    placeholder: String = "Search" ,
+    placeholder: String = "Search",
     shape: RoundedCornerShape = RoundedCornerShape(
         topEnd = 14.dp,
         topStart = 14.dp,
@@ -47,7 +45,9 @@ fun MaterialSearchBar(
             "Chicken",
             "Pizza"
         )
-    }
+    },
+    colorOfBackground: SearchBarColors = SearchBarDefaults.colors(Color.Green),
+    colorOfLeadingIcon: Color = Color.Gray
 ) {
     var text by remember { mutableStateOf("") }
     var active by remember { mutableStateOf(false) }
@@ -75,8 +75,9 @@ fun MaterialSearchBar(
         shape = shape,
         modifier = if (active) {
             Log.e("event", "padding yes - $active")
-            Modifier.padding(horizontal = 0.dp, vertical = 0.dp)
-                .animateContentSize ()
+            Modifier
+                .padding(horizontal = 0.dp, vertical = 0.dp)
+                .animateContentSize()
         } else {
             Log.e("event", "padding no $active")
             modifier.animateContentSize()
@@ -87,7 +88,10 @@ fun MaterialSearchBar(
         },
         leadingIcon = {
             Icon(imageVector = Icons.Default.Search,
-                contentDescription = "Search Icon")
+                contentDescription = "Search Icon",
+                tint = colorOfLeadingIcon
+
+            )
         },
         trailingIcon = {
             if(active) {
@@ -104,7 +108,7 @@ fun MaterialSearchBar(
                 )
             }
         },
-
+        colors = colorOfBackground
     ) {
         items.forEach{
             Row(modifier = Modifier.padding(14.dp)){
