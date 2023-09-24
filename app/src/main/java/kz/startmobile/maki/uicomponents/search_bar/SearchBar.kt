@@ -23,6 +23,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import kz.startmobile.maki.utils.ui.theme.GraySearchBar
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Preview
@@ -46,17 +47,11 @@ fun MaterialSearchBar(
             "Pizza"
         )
     },
-    colorOfBackground: SearchBarColors = SearchBarDefaults.colors(Color.Green),
-    colorOfLeadingIcon: Color = Color.Gray
+    colorOfBackground: SearchBarColors = SearchBarDefaults.colors(GraySearchBar),
+    colorOfLeadingIcon: Color = GraySearchBar
 ) {
     var text by remember { mutableStateOf("") }
     var active by remember { mutableStateOf(false) }
-
-    val paddingValues = if (active) {
-        PaddingValues(16.dp)
-    } else {
-        PaddingValues(0.dp)
-    }
 
     SearchBar(
         query = text,
@@ -89,7 +84,6 @@ fun MaterialSearchBar(
         leadingIcon = {
             Icon(imageVector = Icons.Default.Search,
                 contentDescription = "Search Icon",
-                tint = colorOfLeadingIcon
 
             )
         },
