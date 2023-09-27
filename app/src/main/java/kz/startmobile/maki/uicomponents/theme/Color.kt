@@ -11,6 +11,7 @@ sealed class ThemeColors {
     abstract val primary: Color
     abstract val primaryVariant: Color
     abstract val secondary: Color
+    abstract val searchBarColor: Color
 
     abstract fun values(): Colors
 
@@ -18,15 +19,17 @@ sealed class ThemeColors {
         override val primary = Color(0xFFBB86FC)
         override val primaryVariant = Color(0xFF3700B3)
         override val secondary = Color(0xFF03DAC5)
+        override val searchBarColor = Color(0xFFF2F3F5)
 
-        override fun values() = lightColors(primary, primaryVariant, secondary)
+        override fun values() = lightColors(primary, primaryVariant, secondary, searchBarColor)
     }
 
     object Dark : ThemeColors() {
         override val primary = Color(0xFF6200EE)
         override val primaryVariant = Color(0xFF3700B3)
         override val secondary = Color(0xFF03DAC5)
+        override val searchBarColor = Color(0xFFF2F3F5)
 
-        override fun values(): Colors = darkColors(primary, primaryVariant, secondary)
+        override fun values(): Colors = darkColors(primary, primaryVariant, secondary, searchBarColor)
     }
 }

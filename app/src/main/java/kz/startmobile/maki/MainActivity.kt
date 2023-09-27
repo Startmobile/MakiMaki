@@ -32,15 +32,7 @@ class MainActivity : ComponentActivity() {
                     color = MaterialTheme.colors.background
                 ) {
                    // Greeting("Android")
-                    MaterialSearchBar(
-                        items = mutableListOf(
-                            "Cake",
-                            "Pepsi",
-                            "Pizza",
-                            "Cheese",
-                            "Bread"
-                        )
-                    )
+                    MaterialSearchBar()
                 }
             }
         }
