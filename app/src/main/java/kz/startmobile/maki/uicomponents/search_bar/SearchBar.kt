@@ -102,14 +102,21 @@ fun MaterialSearchBar(
         .background(Color.Green))
 
         items.forEach{
-            Row(modifier = Modifier.padding(14.dp)){
-                Icon(
-                    modifier = Modifier.padding(end = 10.dp),
-                    imageVector = Icons.Default.History,
-                    contentDescription = "History Icon"
-                )
-                Text(text = it)
-            }
+            ListItemsInLoop(it)
         }
+    }
+}
+
+@Composable
+private fun ListItemsInLoop(
+    item: String
+) {
+    Row(modifier = Modifier.padding(14.dp)){
+        Icon(
+            modifier = Modifier.padding(end = 10.dp),
+            imageVector = Icons.Default.History,
+            contentDescription = "History Icon"
+        )
+        Text(text = item)
     }
 }
