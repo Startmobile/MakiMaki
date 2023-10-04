@@ -1,14 +1,11 @@
 package kz.startmobile.maki.uicomponents.search_bar
 
 import android.util.Log
-import androidx.compose.animation.animateContentSize
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.shape.CornerBasedShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Close
@@ -17,7 +14,7 @@ import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.DockedSearchBar
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
-import androidx.compose.material3.SearchBar
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.SearchBarColors
 import androidx.compose.material3.SearchBarDefaults
 import androidx.compose.material3.Text
@@ -27,7 +24,6 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import kz.startmobile.maki.utils.ui.theme.GraySearchBar
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Preview
@@ -48,8 +44,8 @@ fun MaterialSearchBar(
             "Pizza"
         )
     },
-    colorOfBackground: SearchBarColors = SearchBarDefaults.colors(GraySearchBar),
-    colorOfLeadingIcon: Color = GraySearchBar
+    colorOfBackground: SearchBarColors = SearchBarDefaults.colors(MaterialTheme.colorScheme.onSecondary),
+    colorOfLeadingIcon: Color = MaterialTheme.colorScheme.onSecondary
 ) {
     var text by remember { mutableStateOf("") }
     var active by remember { mutableStateOf(false) }

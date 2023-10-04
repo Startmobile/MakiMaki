@@ -1,4 +1,4 @@
-package kz.startmobile.maki.utils.ui.theme
+package kz.startmobile.maki.uicomponents
 
 import androidx.compose.ui.graphics.Color
 
