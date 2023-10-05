@@ -24,6 +24,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import kz.startmobile.maki.uicomponents.GraySearchBar
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Preview
@@ -44,19 +45,22 @@ fun MaterialSearchBar(
             "Pizza"
         )
     },
-    colorOfBackground: SearchBarColors = SearchBarDefaults.colors(MaterialTheme.colorScheme.onSecondary),
-    colorOfLeadingIcon: Color = MaterialTheme.colorScheme.onSecondary
+    searchText: MutableState<String> = remember {
+        mutableStateOf("")
+    },
+    colorOfBackground: SearchBarColors = SearchBarDefaults.colors(GraySearchBar),
+    colorOfLeadingIcon: Color = GraySearchBar
 ) {
-    var text by remember { mutableStateOf("") }
+    //var text by remember { mutableStateOf("") }
     var active by remember { mutableStateOf(false) }
 
     DockedSearchBar(
-        query = text,
-        onQueryChange = {text = it},
+        query = searchText.value,
+        onQueryChange = {searchText.value = it},
         onSearch =  {
-            items.add(text)
+            items.add(searchText.value)
             active = false
-            text = ""
+            searchText.value = ""
             Log.e("click", "onSearch()")
         },
         active = active,
@@ -67,7 +71,8 @@ fun MaterialSearchBar(
         shape = shape,
         modifier = Modifier
             .fillMaxWidth()
-            .padding(horizontal = 16.dp, vertical = 10.dp).then(modifier),
+            .padding(horizontal = 16.dp, vertical = 10.dp)
+            .then(modifier),
         placeholder = {
             Text(text = placeholder)
         },
@@ -81,8 +86,8 @@ fun MaterialSearchBar(
             if(active) {
                 Icon(
                     modifier = Modifier.clickable {
-                        if(text.isNotEmpty()) {
-                            text = ""
+                        if(searchText.value.isNotEmpty()) {
+                            searchText.value = ""
                         } else {
                             active = false
                         }
@@ -94,7 +99,8 @@ fun MaterialSearchBar(
         },
         colors = colorOfBackground,
 
-    ) {(Modifier.padding(horizontal = 0.dp)
+    ) {(Modifier
+        .padding(horizontal = 0.dp)
         .background(Color.Green))
 
         items.forEach{
