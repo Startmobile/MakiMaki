@@ -9,9 +9,9 @@ compose_ui_version = '1.2.0'
 [libraries]
 retrofit2 = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit-version"}
 dagger = { group = "com.google.dagger", name = "dagger-android", version.ref = "dagger_version" }
-voyager = { group = "cafe.adriel.voyager", name = "voyager-android", version.ref = "voyager_version" }
-datastore = { group = "androidx.datastore", name = "datastore-android", version.ref = "datastore_version" }
-coroutines = { group = "org.jetbrains.kotlinx", name = "coroutines-android", version.ref = "coroutines_version" }
-compose = { group = "androidx.compose.ui", name = "compose-ui", version.ref = "compose_ui_version" }
+voyager = { group = "cafe.adriel.voyager", name = "voyager-navigator", version.ref = "voyager_version" }
+datastore = { group = "androidx.datastore", name = "datastore", version.ref = "datastore_version" }
+coroutines = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version.ref = "coroutines_version" }
+compose = { group = "androidx.compose.ui", name = "ui", version.ref = "compose_ui_version" }
 
 [plugins]
