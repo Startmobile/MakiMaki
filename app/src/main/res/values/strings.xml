@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">MakiMaki</string>
+    <string name="no_title"> </string>
 </resources>

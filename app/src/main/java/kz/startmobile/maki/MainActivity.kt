@@ -13,6 +13,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.tooling.preview.Preview
 import kz.startmobile.maki.uicomponents.search_bar.MaterialSearchBar
 import kz.startmobile.maki.uicomponents.MakiMakiTheme
+import kz.startmobile.maki.uicomponents.bottom_nav.BottomNavigation
 
 class MainActivity : ComponentActivity() {
     @OptIn(ExperimentalMaterial3Api::class)
@@ -23,10 +24,11 @@ class MainActivity : ComponentActivity() {
                 // A surface container using the 'background' color from the theme
                 Surface(
 //                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colors.background
+                    //color = MaterialTheme.colors.background
                 ) {
                    // Greeting("Android")
-                    MaterialSearchBar()
+                    //MaterialSearchBar()
+                    BottomNavigation()
                 }
             }
         }
