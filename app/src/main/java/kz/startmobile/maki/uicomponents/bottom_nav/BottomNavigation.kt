@@ -20,13 +20,13 @@ import kz.startmobile.maki.uicomponents.MakiMakiTheme
 @Preview
 @Composable
 fun BottomNavigation() {
-    Scaffold(bottomBar = {
+    Scaffold(
+        modifier = Modifier.background(Color.White),
+        bottomBar = {
         NavigationBar(
             modifier = Modifier
                 .fillMaxWidth()
                 .background(Color.White)
-
-
         ) {
             val selectedItemPosition = remember {
                 mutableStateOf(0)
